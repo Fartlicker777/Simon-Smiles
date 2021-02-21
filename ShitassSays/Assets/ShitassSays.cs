@@ -443,12 +443,17 @@ public class ShitassSays : MonoBehaviour {
     }
 
     #pragma warning disable 414
-    private readonly string TwitchHelpMessage = @"Use !{0} R/G/B/Y/red/green/blue/yellow to press that button. Chain by using spaces.";
+    private readonly string TwitchHelpMessage = @"Use !{0} R/G/B/Y/red/green/blue/yellow to press that button. Chain by using spaces. Use !{0} m/middle to hear the middle tone.";
     #pragma warning restore 414
 
     IEnumerator ProcessTwitchCommand (string Command) {
       string[] Parameters = Command.Trim().ToUpper().Split(' ');
       yield return null;
+      if (Parameters.Length == 1)
+          if (Parameters[0] == "M" || Parameters[0] == "MIDDLE") {
+              Audio.PlaySoundAtTransform("Normal", transform);
+              yield break;
+          }
       for (int i = 0; i < Parameters.Length; i++) {
         if (Parameters[i] != "R" && Parameters[i] != "Y" && Parameters[i] != "B" && Parameters[i] != "G" && Parameters[i] != "RED" &&
         Parameters[i] != "YELLOW" && Parameters[i] != "BLUE" && Parameters[i] != "GREEN") {
