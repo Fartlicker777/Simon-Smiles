@@ -607,11 +607,12 @@ public class ShitassSays : MonoBehaviour {
         {
             { "Filename", "SimonSmilesSettings.json" },
             { "Name", "Simon Smiles Settings" },
-            { "Listing", new List<Dictionary<string, object>>{
+            { "Listings", new List<Dictionary<string, object>>{
                 new Dictionary<string, object>
                 {
                     { "Key", "shitassMode" },
-                    { "Text", "Reverts the module back to when it was Shitass Says" }
+                    { "Text", "Shitass Says" },
+                    { "Description", "Reverts the module back to when it was Shitass Says." },
                 },
             } }
         }
